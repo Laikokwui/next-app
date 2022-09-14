@@ -2,16 +2,16 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link';
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import { useState } from 'react';
 
-const About: NextPage = () => {
+const Customer: NextPage = () => {
     const [navbar, setNavbar] = useState(false);
     return (
         <div className={styles.container}>
             <Head>
-                <title>About Us</title>
-                <meta name="description" content="About Us Page" />
+                <title>Customer</title>
+                <meta name="description" content="Customer Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -93,7 +93,7 @@ const About: NextPage = () => {
                 </div>
             </nav>
             <main className={styles.main}>
-                <h1>About Us Page</h1>
+                <h1>List of Customer</h1>
             </main>
             <footer className={styles.footer}>
                 <a
@@ -108,8 +108,7 @@ const About: NextPage = () => {
                 </a>
             </footer>
         </div>
-        
     )
 }
 
-export default About
+export default Customer
