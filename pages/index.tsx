@@ -3,10 +3,18 @@ import Head from 'next/head'
 import Link from 'next/link';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react';
+import { Modal } from '../components/modal/modal';
+import { useModal } from '../components/useModal';
+import { ConfirmationModal } from '../components/confirmation-modal/confirmation-modal';
+import React, { Component, FunctionComponent, useState } from 'react';
 
 const Home: NextPage = () => {
+  const { isShown, toggle } = useModal();
+  const content = <React.Fragment>Hey, I&apos;m a model.</React.Fragment>;
+  const onConfirm = () => toggle();
+  const onCancel = () => toggle();
   const [navbar, setNavbar] = useState(false);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -174,7 +182,14 @@ const Home: NextPage = () => {
                 Instantly deploy your Next.js site to a public URL with Vercel.
               </p>
             </a>
+            
           </div>
+        </div>
+        <div>
+          <React.Fragment>
+            <button onClick={toggle}>Open modal</button>
+            <Modal isShown={isShown} hide={toggle} modalContent={content} headerText={''} />
+          </React.Fragment>
         </div>
       </main>
 
