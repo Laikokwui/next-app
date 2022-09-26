@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { ConfirmationButtons, Message, YesButton, NoButton } from './confirmation-modal.style';
+import { ConfirmationButtons, Message, YesButton, NoButton } from './ConfirmationModal.style';
 
 interface ConfirmationModalProps {
   onConfirm: () => void;
