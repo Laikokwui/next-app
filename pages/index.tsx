@@ -1,18 +1,16 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 import { Modal } from '../components/modal/modal';
+import Footer from '../components/footer/footer';
+import ThemeToggle from "../components/ThemeToggle/ThemeToggle";
 import { useModal } from '../components/useModal';
-import { ConfirmationModal } from '../components/confirmation-modal/confirmation-modal';
-import React, { Component, FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 
 const Home: NextPage = () => {
   const { isShown, toggle } = useModal();
   const content = <React.Fragment>Hey, I&apos;m a model.</React.Fragment>;
-  const onConfirm = () => toggle();
-  const onCancel = () => toggle();
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -23,7 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav className="w-full bg-gray-800 shadow">
+      <nav className="fixed w-full bg-gray-800 shadow">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -97,6 +95,9 @@ const Home: NextPage = () => {
                 </li>
               </ul>
             </div>
+          </div>
+          <div>
+            <ThemeToggle/>
           </div>
         </div>
       </nav>
@@ -193,18 +194,7 @@ const Home: NextPage = () => {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer/>
     </div>
   )
 }
